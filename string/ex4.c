@@ -1,57 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-void getMinMax(int *t)
-{
-    int i = 0, min = 0, max = 0;
-    min = max = *t;
-
-    for(i = 0; i < 5; i++)
-    {
-        if(min > *(t + i))
-        {
-            min = *(t + i);
-        }
-
-        if(max < *(t + i))
-        {
-            max = *(t + i);
-        }
-    }
-
-    printf("Min: %d\nMax: %d\n", min, max);
-}   
 
 int main(void)
 {
-    char *city[5];
-    int *temps, i = 0, j = 0;
+    // variable declaration
+    char city[5][100];
+    float temp[25];
 
-
-    for(i = 0; i < 5; i++)
+    // prompt the user for city
+    for (int i = 0; i < 5; i++)
     {
-        city[i] = (char*)malloc(50);
-    }
-
-    temps = (int*)malloc(25 * sizeof(int));
-
-    for(i = 0; i < 5; i++)
-    {
-        printf("Enter city: ");
+        printf("Enter your %i city name: ", (i + 1));
         scanf("%s", city[i]);
-        printf("Yearly temperatures of city %d:\n", i + 1);
-
-        for(j = i * 5; j < (i * 5) + 5; j++)
+     // enter the temperature
+        for (int j = 0; j < 25; j++)
         {
-            scanf("%i",temps[j]);
+            printf("Enter your %i year temperature: ", j);
+            scanf("%f", temp);
+            if (j == 4)
+            {
+                break;
+            }
+            
         }
-
-        getMinMax(temps+ (i*5));
     }
 
-    free(city);
-    free(temps);
-}
+   
     
 
+    
+}
  
     
